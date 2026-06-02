@@ -34,12 +34,28 @@
       padding: 18px 32px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 16px;
       box-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    header .header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
     header svg { flex-shrink: 0; }
     header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: .5px; }
     header p  { font-size: .85rem; opacity: .8; }
+    header .header-right {
+      text-align: right;
+      font-size: .75rem;
+      opacity: .85;
+    }
+    header .version {
+      font-weight: 600;
+      font-size: .85rem;
+      margin-bottom: 2px;
+    }
 
     /* ── Layout ── */
     .container {
@@ -319,19 +335,36 @@
       .form-grid .full { grid-column: 1; }
       header h1 { font-size: 1.2rem; }
     }
+
+    /* ── Footer ── */
+    footer {
+      background: linear-gradient(135deg, var(--intel-dark), var(--intel-blue));
+      color: #fff;
+      padding: 12px 32px;
+      text-align: center;
+      font-size: .75rem;
+      margin-top: 48px;
+      border-top: 3px solid var(--intel-blue);
+      opacity: .85;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-    <rect width="36" height="36" rx="8" fill="white" fill-opacity="0.15"/>
-    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
-          font-family="Segoe UI,Arial" font-weight="700" font-size="15" fill="white">✔</text>
-  </svg>
-  <div>
-    <h1>Intel Task Manager</h1>
-    <p>Track, prioritize, and manage your work items</p>
+  <div class="header-left">
+    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="8" fill="white" fill-opacity="0.15"/>
+      <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle"
+            font-family="Segoe UI,Arial" font-weight="700" font-size="15" fill="white">✔</text>
+    </svg>
+    <div>
+      <h1>Intel Task Manager</h1>
+      <p>Track, prioritize, and manage your work items</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="version">v5.2</div>
   </div>
 </header>
 
@@ -913,5 +946,10 @@
   checkRecurring();
   setInterval(checkRecurring, 60000); // re-check every minute
 </script>
+
+<footer>
+  Developed by Brachy Rozenberg
+</footer>
+
 </body>
 </html>
