@@ -483,6 +483,7 @@
       <button class="btn btn-secondary btn-import-export" onclick="exportTasks()">⬇ Export json</button>
       <button class="btn btn-secondary btn-import-export" onclick="document.getElementById('import-file').click()">⬆ Import json</button>
       <button class="btn btn-primary btn-import-export"   onclick="shareLink()">🔗 Share Link</button>
+      <button class="btn btn-danger btn-import-export" onclick="clearAllTasks()">🗑 Delete all</button>
       <input type="file" id="import-file" accept=".json" style="display:none" onchange="importTasks(this)"/>
     </div>
 
@@ -569,6 +570,18 @@
     if (!confirm('Delete this task?')) return;
     tasks = tasks.filter(t => t.id !== id);
     save(); render();
+  }
+
+  function clearAllTasks() {
+    if (tasks.length === 0) {
+      alert('There are no tasks to delete.');
+      return;
+    }
+
+    if (!confirm('Delete all tasks? This can be undone.')) return;
+    tasks = [];
+    save();
+    render();
   }
 
   // ── Toggle blocked ─────────────────────────────────────────────────────────
