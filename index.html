@@ -14,7 +14,8 @@
       --medium: #F57C00;
       --low:    #388E3C;
       --blocked: #9333EA;
-      --done-bg: #F5F5F5;
+      --inprogress: #F59E0B;
+      --done-bg: #D1FAE5;
       --border: #CBD5E1;
       --radius: 10px;
     }
@@ -125,6 +126,7 @@
     .btn-done    { background: #22C55E; color: #fff; padding: 5px 12px; font-size: .8rem; }
     .btn-undo    { background: #94A3B8; color: #fff; padding: 5px 12px; font-size: .8rem; }
     .btn-blocked { background: var(--blocked); color: #fff; padding: 5px 12px; font-size: .8rem; }
+    .btn-inprogress { background: var(--inprogress); color: #fff; padding: 5px 12px; font-size: .8rem; }
 
     /* ── Filters ── */
     .filters {
@@ -173,8 +175,9 @@
     .dot-high   { background: var(--high); }
     .dot-medium { background: var(--medium); }
     .dot-low    { background: var(--low); }
-    .dot-done    { background: #94A3B8; }
+    .dot-done    { background: #22C55E; }
     .dot-blocked { background: var(--blocked); }
+    .dot-inprogress { background: var(--inprogress); }
 
     /* ── Task List ── */
     #task-list { display: flex; flex-direction: column; gap: 12px; }
@@ -194,12 +197,14 @@
     .task-item.dragging { opacity: .45; transform: scale(.99); }
     .task-item.drag-over-top { box-shadow: inset 0 3px 0 var(--intel-blue), 0 3px 12px rgba(0,0,0,.13); }
     .task-item.drag-over-bottom { box-shadow: inset 0 -3px 0 var(--intel-blue), 0 3px 12px rgba(0,0,0,.13); }
-    .task-item.done  { border-left-color: #CBD5E1; background: var(--done-bg); opacity: .75; }
+    .task-item.done  { border-left-color: #22C55E; background: var(--done-bg); opacity: .85; }
     .task-item.priority-High             { border-left-color: var(--high); }
     .task-item.priority-Medium           { border-left-color: var(--medium); }
     .task-item.priority-Low              { border-left-color: var(--low); }
     .task-item.blocked:not(.done)        { border-left-color: var(--blocked); }
+    .task-item.inprogress:not(.done)      { border-left-color: var(--inprogress); background: #FFFBEB; }
     .badge-Blocked { background: #F3E8FF; color: var(--blocked); }
+    .badge-InProgress { background: #FEF3C7; color: var(--inprogress); }
 
     .task-header {
       display: flex;
@@ -321,6 +326,37 @@
     .recurring-row-info { flex: 1; }
     .recurring-row-title { font-weight: 600; font-size: .9rem; }
     .recurring-row-meta  { font-size: .75rem; color: #64748B; }
+    .weekday-picker {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .weekday-chip {
+      position: relative;
+    }
+    .weekday-chip input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .weekday-chip span {
+      display: block;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 0;
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 700;
+      color: #475569;
+      background: #fff;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .weekday-chip input:checked + span {
+      background: var(--intel-blue);
+      border-color: var(--intel-blue);
+      color: #fff;
+    }
 
     @media (max-width: 900px) {
       .container {
@@ -335,6 +371,7 @@
       .form-grid { grid-template-columns: 1fr; }
       .form-grid .full { grid-column: 1; }
       header h1 { font-size: 1.2rem; }
+      .weekday-picker { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     /* ── Footer ── */
@@ -365,7 +402,7 @@
     </div>
   </div>
   <div class="header-right">
-    <div class="version">v5.2</div>
+    <div class="version">v5.3</div>
   </div>
 </header>
 
@@ -426,21 +463,21 @@
             <label>Repeat</label>
             <select id="rec-freq" onchange="updateRecurringForm()">
               <option value="daily">Every Day</option>
-              <option value="weekly">Every Week</option>
+              <option value="weekly">Specific Days</option>
               <option value="monthly">Every Month</option>
             </select>
           </div>
-          <div id="rec-dow-wrap" style="display:none">
-            <label>Day of Week</label>
-            <select id="rec-dow">
-              <option value="0">Sunday</option>
-              <option value="1">Monday</option>
-              <option value="2">Tuesday</option>
-              <option value="3">Wednesday</option>
-              <option value="4">Thursday</option>
-              <option value="5">Friday</option>
-              <option value="6">Saturday</option>
-            </select>
+          <div id="rec-dow-wrap" class="full" style="display:none">
+            <label>Select days in the week</label>
+            <div class="weekday-picker" id="rec-weekdays">
+              <label class="weekday-chip"><input type="checkbox" value="0"><span>Sun</span></label>
+              <label class="weekday-chip"><input type="checkbox" value="1"><span>Mon</span></label>
+              <label class="weekday-chip"><input type="checkbox" value="2"><span>Tue</span></label>
+              <label class="weekday-chip"><input type="checkbox" value="3"><span>Wed</span></label>
+              <label class="weekday-chip"><input type="checkbox" value="4"><span>Thu</span></label>
+              <label class="weekday-chip"><input type="checkbox" value="5"><span>Fri</span></label>
+              <label class="weekday-chip"><input type="checkbox" value="6"><span>Sat</span></label>
+            </div>
           </div>
           <div id="rec-dom-wrap" style="display:none">
             <label>Day of Month (1–31)</label>
@@ -475,6 +512,7 @@
       <button class="filter-btn" onclick="setFilter('Medium', this)">🟠 Medium</button>
       <button class="filter-btn" onclick="setFilter('Low', this)">🟢 Low</button>
       <button class="filter-btn" onclick="setFilter('Done', this)">✔ Done</button>
+      <button class="filter-btn" onclick="setFilter('InProgress', this)">🟡 In Progress</button>
       <button class="filter-btn" onclick="setFilter('Blocked', this)">🚫 Blocked</button>
     </div>
 
@@ -527,10 +565,55 @@
 
 <script>
   // ── State ──────────────────────────────────────────────────────────────────
-  let tasks = JSON.parse(localStorage.getItem('intel-tasks') || '[]');
+  let tasks = JSON.parse(localStorage.getItem('intel-tasks') || '[]').map(normalizeTask);
   let currentFilter = 'All';
   let editingId = null;
   let draggedTaskId = null;
+
+  function normalizeTask(task) {
+    return {
+      ...task,
+      done: Boolean(task.done),
+      blocked: Boolean(task.blocked),
+      inProgress: Boolean(task.inProgress)
+    };
+  }
+
+  function getSelectedRecurringDays() {
+    return Array.from(document.querySelectorAll('#rec-weekdays input:checked'))
+      .map(input => Number.parseInt(input.value, 10))
+      .filter(day => Number.isInteger(day));
+  }
+
+  function clearSelectedRecurringDays() {
+    document.querySelectorAll('#rec-weekdays input').forEach(input => {
+      input.checked = false;
+    });
+  }
+
+  function getRecurringDays(template) {
+    if (Array.isArray(template.daysOfWeek) && template.daysOfWeek.length > 0) {
+      return template.daysOfWeek;
+    }
+    if (Number.isInteger(template.dayOfWeek)) {
+      return [template.dayOfWeek];
+    }
+    return [];
+  }
+
+  function moveTaskToBottom(taskId) {
+    const index = tasks.findIndex(task => task.id === taskId);
+    if (index === -1 || index === tasks.length - 1) return;
+    const [task] = tasks.splice(index, 1);
+    tasks.push(task);
+  }
+
+  function sortTasksForDisplay(items) {
+    return [...items].sort((left, right) => {
+      if (left.done !== right.done) return left.done ? 1 : -1;
+      return 0;
+    });
+  }
 
   function save() {
     localStorage.setItem('intel-tasks', JSON.stringify(tasks));
@@ -541,7 +624,7 @@
     const title = document.getElementById('task-title').value.trim();
     if (!title) { alert('Please enter a task title.'); return; }
 
-    tasks.unshift({
+    tasks.unshift(normalizeTask({
       id:       Date.now(),
       title,
       priority: document.getElementById('task-priority').value,
@@ -549,8 +632,9 @@
       comment:  document.getElementById('task-comment').value.trim(),
       done:     false,
       blocked:  false,
+      inProgress: false,
       created:  new Date().toLocaleDateString()
-    });
+    }));
 
     save();
     document.getElementById('task-title').value   = '';
@@ -562,7 +646,15 @@
   // ── Toggle done ────────────────────────────────────────────────────────────
   function toggleDone(id) {
     const t = tasks.find(t => t.id === id);
-    if (t) { t.done = !t.done; save(); render(); }
+    if (!t) return;
+    t.done = !t.done;
+    if (t.done) {
+      t.blocked = false;
+      t.inProgress = false;
+      moveTaskToBottom(id);
+    }
+    save();
+    render();
   }
 
   // ── Delete ─────────────────────────────────────────────────────────────────
@@ -587,7 +679,27 @@
   // ── Toggle blocked ─────────────────────────────────────────────────────────
   function toggleBlocked(id) {
     const t = tasks.find(t => t.id === id);
-    if (t) { t.blocked = !t.blocked; save(); render(); }
+    if (!t) return;
+    t.blocked = !t.blocked;
+    if (t.blocked) {
+      t.done = false;
+      t.inProgress = false;
+    }
+    save();
+    render();
+  }
+
+  // ── Toggle in progress ─────────────────────────────────────────────────────
+  function toggleInProgress(id) {
+    const t = tasks.find(t => t.id === id);
+    if (!t) return;
+    t.inProgress = !t.inProgress;
+    if (t.inProgress) {
+      t.done = false;
+      t.blocked = false;
+    }
+    save();
+    render();
   }
 
   // ── Drag reorder ──────────────────────────────────────────────────────────
@@ -693,12 +805,13 @@
   function render() {
     renderStats();
     const list = document.getElementById('task-list');
-    const visible = tasks.filter(t => {
+    const visible = sortTasksForDisplay(tasks.filter(t => {
       if (currentFilter === 'All')     return true;
       if (currentFilter === 'Done')    return t.done;
+      if (currentFilter === 'InProgress') return t.inProgress && !t.done;
       if (currentFilter === 'Blocked') return t.blocked && !t.done;
       return t.priority === currentFilter && !t.done;
-    });
+    }));
 
     if (visible.length === 0) {
       list.innerHTML = `
@@ -713,7 +826,7 @@
     }
 
     list.innerHTML = visible.map(t => `
-       <div class="task-item ${t.done ? 'done' : (t.blocked ? 'blocked' : '')} priority-${t.priority}"
+       <div class="task-item ${t.done ? 'done' : (t.inProgress ? 'inprogress' : (t.blocked ? 'blocked' : ''))} priority-${t.priority}"
          data-id="${t.id}"
          tabindex="0"
          draggable="false"
@@ -730,13 +843,17 @@
               Added ${t.created}${t.due ? ' &nbsp;·&nbsp; Due: ' + escHtml(t.due) : ''}
             </div>
           </div>
-          <span class="badge ${t.done ? 'badge-Done' : (t.blocked ? 'badge-Blocked' : 'badge-' + t.priority)}">
-            ${t.done ? '✔ Done' : (t.blocked ? '🚫 Blocked' : t.priority)}
+          <span class="badge ${t.done ? 'badge-Done' : (t.inProgress ? 'badge-InProgress' : (t.blocked ? 'badge-Blocked' : 'badge-' + t.priority))}">
+              ${t.done ? '✔ Done' : (t.inProgress ? '🟡 In Progress' : (t.blocked ? '🚫 Blocked' : t.priority))}
           </span>
           <div class="task-actions">
             <button class="btn ${t.done ? 'btn-undo' : 'btn-done'}"
                     onclick="toggleDone(${t.id})">
               ${t.done ? 'Undo' : 'Done'}
+            </button>
+            <button class="btn ${t.inProgress ? 'btn-undo' : 'btn-inprogress'}"
+                    onclick="toggleInProgress(${t.id})">
+              ${t.inProgress ? 'Stop Progress' : '🟡 In Progress'}
             </button>
             <button class="btn ${t.blocked ? 'btn-undo' : 'btn-blocked'}"
                     onclick="toggleBlocked(${t.id})">
@@ -757,6 +874,7 @@
     const total   = tasks.length;
     const done    = tasks.filter(t => t.done).length;
     const blocked = tasks.filter(t => t.blocked && !t.done).length;
+    const inProgress = tasks.filter(t => t.inProgress && !t.done).length;
     const high    = tasks.filter(t => t.priority === 'High'   && !t.done).length;
     const medium  = tasks.filter(t => t.priority === 'Medium' && !t.done).length;
     const low     = tasks.filter(t => t.priority === 'Low'    && !t.done).length;
@@ -764,6 +882,7 @@
       <div class="stat-pill"><span class="dot dot-high"></span>High: ${high}</div>
       <div class="stat-pill"><span class="dot dot-medium"></span>Medium: ${medium}</div>
       <div class="stat-pill"><span class="dot dot-low"></span>Low: ${low}</div>
+      <div class="stat-pill"><span class="dot dot-inprogress"></span>In Progress: ${inProgress}</div>
       <div class="stat-pill"><span class="dot dot-blocked"></span>Blocked: ${blocked}</div>
       <div class="stat-pill"><span class="dot dot-done"></span>Done: ${done} / ${total}</div>
     `;
@@ -799,13 +918,19 @@
     const title = document.getElementById('rec-title').value.trim();
     if (!title) { alert('Please enter a task title.'); return; }
     const freq = document.getElementById('rec-freq').value;
+    const daysOfWeek = freq === 'weekly' ? getSelectedRecurringDays() : [];
+    if (freq === 'weekly' && daysOfWeek.length === 0) {
+      alert('Select at least one day of the week.');
+      return;
+    }
+
     recurringTemplates.push({
       id:         Date.now(),
       title,
       priority:   document.getElementById('rec-priority').value,
       comment:    document.getElementById('rec-comment').value.trim(),
       frequency:  freq,
-      dayOfWeek:  parseInt(document.getElementById('rec-dow').value),
+      daysOfWeek,
       dayOfMonth: parseInt(document.getElementById('rec-dom').value) || 1,
       time:       document.getElementById('rec-time').value,
       lastRun:    ''
@@ -813,6 +938,7 @@
     saveRecurring();
     document.getElementById('rec-title').value   = '';
     document.getElementById('rec-comment').value = '';
+    clearSelectedRecurringDays();
     renderRecurring();
     checkRecurring();
   }
@@ -834,7 +960,7 @@
     el.innerHTML = recurringTemplates.map(r => {
       let freqLabel = '';
       if (r.frequency === 'daily')   freqLabel = 'Every day';
-      if (r.frequency === 'weekly')  freqLabel = 'Every ' + dayNames[r.dayOfWeek];
+      if (r.frequency === 'weekly')  freqLabel = 'On ' + getRecurringDays(r).map(day => dayNames[day]).join(', ');
       if (r.frequency === 'monthly') freqLabel = 'Every month on day ' + r.dayOfMonth;
       return `
         <div class="recurring-row">
@@ -860,10 +986,10 @@
     recurringTemplates.forEach(r => {
       if (r.lastRun === today) return;        // already spawned today
       if (nowHHMM < r.time)   return;        // not time yet
-      if (r.frequency === 'weekly'  && now.getDay()  !== r.dayOfWeek)  return;
+      if (r.frequency === 'weekly'  && !getRecurringDays(r).includes(now.getDay())) return;
       if (r.frequency === 'monthly' && now.getDate() !== r.dayOfMonth) return;
 
-      tasks.unshift({
+      tasks.unshift(normalizeTask({
         id:       Date.now() + Math.floor(Math.random() * 999),
         title:    r.title + ' 🔁',
         priority: r.priority,
@@ -871,8 +997,9 @@
         comment:  r.comment,
         done:     false,
         blocked:  false,
+        inProgress: false,
         created:  today
-      });
+      }));
       r.lastRun = today;
       changed   = true;
     });
@@ -904,7 +1031,7 @@
         const imported = JSON.parse(e.target.result);
         if (!Array.isArray(imported)) throw new Error();
         if (confirm('Import ' + imported.length + ' tasks? This will REPLACE your current tasks.')) {
-          tasks = imported;
+          tasks = imported.map(normalizeTask);
           save(); render();
         }
       } catch { alert('Invalid JSON file.'); }
@@ -935,7 +1062,7 @@
       const imported = JSON.parse(decodeURIComponent(hash.slice(6)));
       if (!Array.isArray(imported)) return;
       if (confirm('Load ' + imported.length + ' shared tasks from the link?\nThis will replace your current tasks.')) {
-        tasks = imported;
+        tasks = imported.map(normalizeTask);
         save();
         history.replaceState(null, '', location.pathname);
       }
