@@ -1,0 +1,8 @@
+[build]
+  base = "maximimun"
+  publish = "."
+
+[[redirects]]
+  from = "/"
+  to = "/maximimun.html"
+  status = 200
