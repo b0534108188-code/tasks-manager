@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="מקסימום מימון - ייעוץ משכנתאות, הלוואות, מיחזור משכנתא ופתרונות למסורבי משכנתא בליווי אישי ומקצועי.">
+    <title>מקסימום מימון | ייעוץ משכנתאות ופתרונות מימון</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Noto+Serif+Hebrew:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #0e3424;
+            --forest-2: #154730;
+            --forest-3: #1d5c3c;
+            --leaf: #2f7b4b;
+            --gold: #c9a243;
+            --gold-soft: #ead28a;
+            --gold-deep: #9b7829;
+            --cream: #fbf7ec;
+            --paper: #fffdf7;
+            --mist: #edf3ed;
+            --ink: #10221a;
+            --muted: #637168;
+            --line: rgba(16, 34, 26, 0.14);
+            --white-line: rgba(255, 255, 255, 0.18);
+            --shadow: 0 24px 60px rgba(15, 45, 30, 0.16);
+            --shadow-strong: 0 28px 80px rgba(9, 31, 20, 0.34);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: var(--ink);
+            font-family: "Heebo", sans-serif;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                linear-gradient(135deg, rgba(14, 52, 36, 0.08) 0 1px, transparent 1px 34px),
+                linear-gradient(45deg, rgba(201, 162, 67, 0.08) 0 1px, transparent 1px 38px),
+                var(--cream);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(255, 253, 247, 0.9), rgba(251, 247, 236, 0.96));
+            pointer-events: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .page-shell {
+            min-height: 100vh;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(251, 247, 236, 0.9);
+            border-bottom: 1px solid rgba(16, 34, 26, 0.1);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 210px;
+        }
+
+        .brand-mark {
+            width: 76px;
+            height: 54px;
+            object-fit: contain;
+        }
+
+        .brand-text strong {
+            display: block;
+            color: var(--forest);
+            font-size: 1.08rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .brand-text span {
+            color: var(--gold-deep);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            color: #233d2f;
+            font-size: 0.94rem;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 7px 0;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.24s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a:focus-visible::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid transparent;
+            border-radius: var(--radius);
+            padding: 0 18px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-soft));
+            color: #122116;
+            box-shadow: 0 12px 24px rgba(155, 120, 41, 0.28);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            box-shadow: 0 16px 34px rgba(155, 120, 41, 0.36);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.72);
+            border-color: rgba(14, 52, 36, 0.16);
+            color: var(--forest);
+        }
+
+        .btn-dark {
+            background: var(--forest);
+            color: var(--paper);
+            box-shadow: 0 14px 32px rgba(14, 52, 36, 0.24);
+        }
+
+        .btn-icon {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+        }
+
+        .hero {
+            position: relative;
+            isolation: isolate;
+            color: var(--paper);
+            background:
+                linear-gradient(140deg, rgba(14, 52, 36, 0.97), rgba(21, 71, 48, 0.95) 42%, rgba(13, 38, 28, 0.98)),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: auto, 42px 42px, 42px 42px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: auto -8% -26% -8%;
+            height: 45%;
+            background: linear-gradient(135deg, transparent 18%, rgba(201, 162, 67, 0.18) 18% 20%, transparent 20% 42%, rgba(255, 255, 255, 0.08) 42% 44%, transparent 44%);
+            transform: skewY(-5deg);
+            z-index: -1;
+        }
+
+        .hero-inner {
+            min-height: 680px;
+            display: grid;
+            grid-template-columns: 1fr 0.82fr;
+            align-items: center;
+            gap: 54px;
+            padding: 74px 0 72px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding: 8px 13px;
+            border: 1px solid rgba(234, 210, 138, 0.36);
+            border-radius: 999px;
+            color: var(--gold-soft);
+            background: rgba(255, 255, 255, 0.07);
+            font-size: 0.84rem;
+            font-weight: 800;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 6px rgba(201, 162, 67, 0.14);
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        .hero-title {
+            max-width: 760px;
+            margin-bottom: 20px;
+            font-family: "Noto Serif Hebrew", "Heebo", serif;
+            font-size: 4.15rem;
+            line-height: 1.04;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .hero-title span {
+            color: var(--gold-soft);
+        }
+
+        .hero-copy {
+            max-width: 680px;
+            margin-bottom: 32px;
+            color: rgba(255, 253, 247, 0.82);
+            font-size: 1.2rem;
+            line-height: 1.85;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 34px;
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            max-width: 720px;
+        }
+
+        .meta-item {
+            min-height: 92px;
+            padding: 18px;
+            border: 1px solid var(--white-line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .meta-item strong {
+            display: block;
+            color: var(--gold-soft);
+            font-size: 1.15rem;
+            font-weight: 900;
+        }
+
+        .meta-item span {
+            display: block;
+            margin-top: 5px;
+            color: rgba(255, 253, 247, 0.76);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 470px;
+            display: grid;
+            place-items: center;
+        }
+
+        .logo-stage {
+            position: relative;
+            width: min(420px, 100%);
+            aspect-ratio: 1 / 1;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(234, 210, 138, 0.28);
+            border-radius: 50%;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03)),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 24px);
+            box-shadow: var(--shadow-strong);
+            animation: stageFloat 7s ease-in-out infinite;
+        }
+
+        .logo-stage::before,
+        .logo-stage::after {
+            content: "";
+            position: absolute;
+            inset: 30px;
+            border: 1px solid rgba(234, 210, 138, 0.18);
+            border-radius: inherit;
+        }
+
+        .logo-stage::after {
+            inset: -20px;
+            border-style: dashed;
+            opacity: 0.5;
+        }
+
+        .logo-stage img {
+            position: relative;
+            z-index: 2;
+            width: 68%;
+            height: auto;
+            filter: drop-shadow(0 18px 24px rgba(0, 0, 0, 0.28));
+        }
+
+        .floating-note {
+            position: absolute;
+            z-index: 3;
+            max-width: 190px;
+            padding: 12px 14px;
+            border: 1px solid rgba(234, 210, 138, 0.32);
+            border-radius: var(--radius);
+            background: rgba(255, 253, 247, 0.92);
+            color: var(--forest);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
+            font-size: 0.9rem;
+            font-weight: 900;
+            line-height: 1.45;
+        }
+
+        .floating-note.top {
+            top: 40px;
+            left: 4px;
+        }
+
+        .floating-note.bottom {
+            right: -8px;
+            bottom: 44px;
+        }
+
+        @keyframes stageFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .trust-band {
+            margin-top: -34px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 12px;
+            padding: 14px;
+            border: 1px solid rgba(201, 162, 67, 0.32);
+            border-radius: var(--radius);
+            background: rgba(255, 253, 247, 0.94);
+            box-shadow: var(--shadow);
+        }
+
+        .trust-item {
+            min-height: 92px;
+            display: grid;
+            align-content: center;
+            gap: 4px;
+            padding: 18px;
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, #ffffff, #f6f0df);
+            border: 1px solid rgba(16, 34, 26, 0.08);
+        }
+
+        .trust-item span {
+            color: var(--gold-deep);
+            font-size: 0.78rem;
+            font-weight: 900;
+        }
+
+        .trust-item strong {
+            color: var(--forest);
+            font-size: 1.12rem;
+            font-weight: 900;
+        }
+
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .service-card, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card) {
+            --spot-x: 50%;
+            --spot-y: 50%;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease, background 0.26s ease;
+        }
+
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .service-card, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card)::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0;
+            background:
+                radial-gradient(circle at var(--spot-x) var(--spot-y), rgba(234, 210, 138, 0.24), transparent 28%),
+                linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.15) 45%, transparent 58%);
+            transform: translateX(18%);
+            transition: opacity 0.24s ease, transform 0.52s ease;
+        }
+
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card):hover,
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card):focus-within {
+            transform: translateY(-5px);
+            border-color: rgba(201, 162, 67, 0.42);
+            box-shadow: 0 24px 58px rgba(14, 52, 36, 0.16);
+        }
+
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .service-card, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card):hover::after,
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .service-card, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card):focus-within::after,
+        :where(.meta-item, .trust-item, .portrait-panel, .quote-panel, .service-card, .offer-row, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card):active::after {
+            opacity: 1;
+            transform: translateX(-18%);
+        }
+
+        section {
+            padding: 96px 0;
+        }
+
+        .section-head {
+            max-width: 760px;
+            margin-bottom: 42px;
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            margin-bottom: 12px;
+            color: var(--gold-deep);
+            font-size: 0.86rem;
+            font-weight: 900;
+        }
+
+        .section-title {
+            margin-bottom: 16px;
+            color: var(--forest);
+            font-family: "Noto Serif Hebrew", "Heebo", serif;
+            font-size: 2.45rem;
+            line-height: 1.18;
+            font-weight: 800;
+            letter-spacing: 0;
+        }
+
+        .section-lead {
+            color: var(--muted);
+            font-size: 1.08rem;
+            line-height: 1.85;
+            margin-bottom: 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 44px;
+            align-items: center;
+        }
+
+        .portrait-panel {
+            position: relative;
+            padding: 26px;
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, var(--forest), var(--forest-2));
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .portrait-panel::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border: 1px solid rgba(234, 210, 138, 0.28);
+            border-radius: var(--radius);
+        }
+
+        .portrait-panel img {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: contain;
+            border-radius: var(--radius);
+            background: var(--paper);
+            padding: 20px;
+        }
+
+        .signature-strip {
+            position: relative;
+            z-index: 2;
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 14px;
+            color: rgba(255, 253, 247, 0.86);
+        }
+
+        .signature-strip strong {
+            display: block;
+            color: var(--gold-soft);
+            font-size: 1.05rem;
+            font-weight: 900;
+        }
+
+        .signature-strip span {
+            display: block;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .mini-logo {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.94);
+            padding: 5px;
+        }
+
+        .text-block p {
+            color: #384b40;
+            font-size: 1.04rem;
+            line-height: 1.95;
+            margin-bottom: 18px;
+        }
+
+        .quote-panel {
+            margin-top: 26px;
+            padding: 24px;
+            border-right: 4px solid var(--gold);
+            border-radius: var(--radius);
+            background: var(--paper);
+            box-shadow: 0 14px 34px rgba(14, 52, 36, 0.08);
+            color: var(--forest);
+            font-weight: 800;
+            line-height: 1.8;
+        }
+
+        .services {
+            background: var(--paper);
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .service-card {
+            min-height: 250px;
+            padding: 28px;
+            border: 1px solid rgba(16, 34, 26, 0.11);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 242, 226, 0.88)),
+                repeating-linear-gradient(135deg, rgba(201, 162, 67, 0.08) 0 1px, transparent 1px 22px);
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+        }
+
+        .service-card:hover,
+        .service-card:focus-within {
+            transform: translateY(-6px);
+            border-color: rgba(201, 162, 67, 0.48);
+            box-shadow: var(--shadow);
+        }
+
+        .service-number {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background: var(--forest);
+            color: var(--gold-soft);
+            font-weight: 900;
+        }
+
+        .service-card h3 {
+            color: var(--forest);
+            font-size: 1.25rem;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .service-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        .feature-offers {
+            display: grid;
+            gap: 26px;
+        }
+
+        .offer-row {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            align-items: center;
+            gap: 36px;
+            padding: 32px;
+            border: 1px solid rgba(16, 34, 26, 0.12);
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(255, 253, 247, 0.92), rgba(237, 243, 237, 0.9));
+            box-shadow: 0 18px 42px rgba(14, 52, 36, 0.1);
+        }
+
+        .offer-row:nth-child(even) {
+            grid-template-columns: 1.05fr 0.95fr;
+        }
+
+        .offer-row:nth-child(even) .offer-image {
+            order: 2;
+        }
+
+        .offer-image {
+            overflow: hidden;
+            border-radius: var(--radius);
+            border: 1px solid rgba(201, 162, 67, 0.28);
+            background: #fff;
+            box-shadow: 0 18px 38px rgba(14, 52, 36, 0.13);
+        }
+
+        .offer-image img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            background: #fff;
+        }
+
+        .offer-content h3 {
+            color: var(--forest);
+            font-size: 1.75rem;
+            line-height: 1.25;
+            margin-bottom: 14px;
+            font-weight: 900;
+        }
+
+        .offer-content p {
+            color: #435348;
+            line-height: 1.85;
+            font-size: 1.02rem;
+            margin-bottom: 18px;
+        }
+
+        .check-list {
+            display: grid;
+            gap: 10px;
+            margin: 0 0 24px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .check-list li {
+            display: grid;
+            grid-template-columns: 24px 1fr;
+            align-items: start;
+            gap: 8px;
+            color: #283c30;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .check-list li::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            margin-top: 4px;
+            border-radius: 50%;
+            background:
+                linear-gradient(135deg, var(--gold), var(--gold-soft));
+            box-shadow: inset 0 0 0 5px rgba(255, 253, 247, 0.78);
+        }
+
+        .process {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            color: var(--paper);
+            background:
+                radial-gradient(circle at 14% 18%, rgba(234, 210, 138, 0.18), transparent 24%),
+                radial-gradient(circle at 88% 72%, rgba(47, 123, 75, 0.34), transparent 28%),
+                linear-gradient(135deg, rgba(14, 52, 36, 0.99), rgba(25, 80, 52, 0.96)),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 42px);
+        }
+
+        .process::before,
+        .process::after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .process::before {
+            inset: -120px auto auto -90px;
+            width: 360px;
+            height: 360px;
+            border: 1px solid rgba(234, 210, 138, 0.22);
+            border-radius: 50%;
+            box-shadow: 0 0 0 44px rgba(234, 210, 138, 0.04), 0 0 0 90px rgba(255, 255, 255, 0.03);
+        }
+
+        .process::after {
+            inset: auto -12% -22% auto;
+            width: 52%;
+            height: 58%;
+            background: linear-gradient(135deg, transparent 22%, rgba(234, 210, 138, 0.16) 22% 24%, transparent 24% 48%, rgba(255, 255, 255, 0.08) 48% 50%, transparent 50%);
+            transform: skewY(-7deg);
+        }
+
+        .process .section-title,
+        .process .section-kicker {
+            color: var(--gold-soft);
+        }
+
+        .process .section-lead {
+            color: rgba(255, 253, 247, 0.76);
+        }
+
+        .process-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .process-grid::before {
+            content: "";
+            position: absolute;
+            top: 86px;
+            right: 12%;
+            left: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(234, 210, 138, 0.58), rgba(255, 253, 247, 0.22), rgba(234, 210, 138, 0.58), transparent);
+            z-index: 0;
+        }
+
+        .process-grid::after {
+            content: "";
+            position: absolute;
+            top: 80px;
+            right: 12%;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            box-shadow: 0 0 0 10px rgba(234, 210, 138, 0.12), 0 0 34px rgba(234, 210, 138, 0.54);
+            animation: processPulse 2.4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes processPulse {
+            0%, 100% { transform: translateX(0) scale(1); opacity: 0.78; }
+            50% { transform: translateX(-10px) scale(1.18); opacity: 1; }
+        }
+
+        .process-step {
+            position: relative;
+            z-index: 2;
+            min-height: 334px;
+            display: grid;
+            align-content: start;
+            padding: 28px;
+            border: 1px solid rgba(234, 210, 138, 0.26);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(150deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.055)),
+                linear-gradient(180deg, rgba(14, 52, 36, 0.18), rgba(14, 52, 36, 0.38));
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            transition: border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease;
+        }
+
+        .process-step:nth-child(even) {
+            margin-top: 42px;
+        }
+
+        .process-step:hover,
+        .process-step:focus-within {
+            border-color: rgba(234, 210, 138, 0.72);
+            box-shadow: 0 28px 62px rgba(0, 0, 0, 0.28), 0 0 34px rgba(234, 210, 138, 0.12);
+            background:
+                linear-gradient(150deg, rgba(234, 210, 138, 0.2), rgba(255, 255, 255, 0.075)),
+                linear-gradient(180deg, rgba(14, 52, 36, 0.18), rgba(14, 52, 36, 0.38));
+        }
+
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 14px;
+            bottom: -12px;
+            color: rgba(234, 210, 138, 0.14);
+            font-size: 6.8rem;
+            line-height: 1;
+            font-weight: 900;
+        }
+
+        .process-step::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.16) 46%, transparent 54%);
+            transform: translateX(120%);
+            transition: transform 0.7s ease;
+        }
+
+        .process-step:hover::after,
+        .process-step:focus-within::after {
+            transform: translateX(-120%);
+        }
+
+        .step-chip {
+            position: relative;
+            z-index: 2;
+            width: fit-content;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            padding: 7px 11px;
+            border: 1px solid rgba(234, 210, 138, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 253, 247, 0.08);
+            color: var(--gold-soft);
+            font-size: 0.78rem;
+            font-weight: 900;
+        }
+
+        .step-chip::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold-soft);
+            box-shadow: 0 0 0 6px rgba(234, 210, 138, 0.12);
+        }
+
+        .step-icon {
+            position: relative;
+            z-index: 2;
+            width: 58px;
+            height: 58px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, var(--gold-deep), var(--gold-soft));
+            color: #10221a;
+            font-size: 1.42rem;
+            font-weight: 900;
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22), inset 0 0 0 6px rgba(255, 253, 247, 0.24);
+        }
+
+        .process-step h3 {
+            position: relative;
+            z-index: 2;
+            min-height: 52px;
+            color: #fffdf7;
+            font-size: 1.18rem;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .process-step p {
+            position: relative;
+            z-index: 2;
+            margin: 0 0 18px;
+            color: rgba(255, 253, 247, 0.74);
+            line-height: 1.75;
+            font-size: 0.96rem;
+        }
+
+        .step-detail {
+            position: relative;
+            z-index: 2;
+            align-self: end;
+            display: inline-flex;
+            width: fit-content;
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid rgba(234, 210, 138, 0.18);
+            color: var(--gold-soft);
+            font-size: 0.88rem;
+            font-weight: 900;
+        }
+
+        .faq-testimonials {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 34px;
+            align-items: start;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .faq-item {
+            border: 1px solid rgba(16, 34, 26, 0.12);
+            border-radius: var(--radius);
+            background: var(--paper);
+            box-shadow: 0 12px 26px rgba(14, 52, 36, 0.07);
+            overflow: hidden;
+        }
+
+        .faq-button {
+            width: 100%;
+            min-height: 66px;
+            display: grid;
+            grid-template-columns: 1fr 34px;
+            gap: 14px;
+            align-items: center;
+            border: 0;
+            background: transparent;
+            color: var(--forest);
+            padding: 18px 20px;
+            text-align: right;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        .faq-icon {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--mist);
+            color: var(--forest);
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .faq-button[aria-expanded="true"] .faq-icon {
+            transform: rotate(45deg);
+            background: var(--gold-soft);
+        }
+
+        .faq-answer {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.24s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            grid-template-rows: 1fr;
+        }
+
+        .faq-answer-inner {
+            overflow: hidden;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            padding: 0 20px 20px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .testimonial-stack {
+            display: grid;
+            gap: 16px;
+        }
+
+        .testimonial {
+            padding: 26px;
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, var(--forest), var(--forest-2));
+            color: var(--paper);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial:nth-child(2) {
+            background: linear-gradient(145deg, #f8f0dc, #fffdf7);
+            color: var(--forest);
+            border: 1px solid rgba(201, 162, 67, 0.24);
+        }
+
+        .testimonial p {
+            margin-bottom: 18px;
+            line-height: 1.85;
+            font-size: 1rem;
+        }
+
+        .testimonial strong {
+            color: var(--gold-soft);
+            font-weight: 900;
+        }
+
+        .testimonial:nth-child(2) strong {
+            color: var(--gold-deep);
+        }
+
+        .contact {
+            padding-top: 0;
+        }
+
+        .contact-panel {
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 32px;
+            align-items: stretch;
+            padding: 32px;
+            border-radius: var(--radius);
+            background:
+                linear-gradient(135deg, rgba(14, 52, 36, 0.97), rgba(24, 83, 54, 0.96)),
+                repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px 28px);
+            color: var(--paper);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .contact-info {
+            display: grid;
+            align-content: space-between;
+            gap: 24px;
+        }
+
+        .contact-info .section-title {
+            color: var(--gold-soft);
+        }
+
+        .contact-info .section-lead {
+            color: rgba(255, 253, 247, 0.76);
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-method {
+            display: grid;
+            grid-template-columns: 44px 1fr;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            border: 1px solid rgba(234, 210, 138, 0.22);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-method svg {
+            width: 44px;
+            height: 44px;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(234, 210, 138, 0.14);
+            color: var(--gold-soft);
+        }
+
+        .contact-method span {
+            display: block;
+            color: rgba(255, 253, 247, 0.66);
+            font-size: 0.84rem;
+        }
+
+        .contact-method strong {
+            display: block;
+            margin-top: 2px;
+            color: var(--paper);
+            font-size: 1.05rem;
+            font-weight: 900;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .lead-card {
+            border-radius: var(--radius);
+            background: var(--paper);
+            color: var(--ink);
+            padding: 28px;
+            box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
+        }
+
+        .lead-card h3 {
+            margin-bottom: 6px;
+            color: var(--forest);
+            font-size: 1.45rem;
+            font-weight: 900;
+        }
+
+        .lead-card > p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 22px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .field {
+            display: grid;
+            gap: 7px;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        .field label {
+            color: #314336;
+            font-size: 0.84rem;
+            font-weight: 900;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            min-height: 46px;
+            border: 1px solid rgba(16, 34, 26, 0.15);
+            border-radius: var(--radius);
+            background: #fff;
+            color: var(--ink);
+            padding: 0 13px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field textarea {
+            min-height: 112px;
+            padding-top: 12px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(201, 162, 67, 0.15);
+        }
+
+        .field.invalid input,
+        .field.invalid select,
+        .field.invalid textarea {
+            border-color: #b64747;
+        }
+
+        .error {
+            display: none;
+            color: #b64747;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .field.invalid .error {
+            display: block;
+        }
+
+        .form-footer {
+            margin-top: 18px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .microcopy {
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .success-box {
+            display: none;
+            border: 1px solid rgba(47, 123, 75, 0.2);
+            border-radius: var(--radius);
+            background: #f0f7ef;
+            padding: 18px;
+            color: var(--forest);
+        }
+
+        .success-box.show {
+            display: block;
+        }
+
+        .success-box strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.08rem;
+            font-weight: 900;
+        }
+
+        .success-summary {
+            display: grid;
+            gap: 6px;
+            margin-top: 12px;
+            color: #36483b;
+            font-size: 0.92rem;
+        }
+
+        .footer {
+            padding: 34px 0;
+            border-top: 1px solid rgba(16, 34, 26, 0.12);
+            background: var(--paper);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--forest);
+            font-weight: 900;
+        }
+
+        .footer-logo img {
+            width: 54px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .creator-card {
+            display: grid;
+            grid-template-columns: 116px 1fr;
+            align-items: center;
+            gap: 14px;
+            min-width: min(100%, 390px);
+            padding: 12px 14px;
+            border: 1px solid rgba(201, 162, 67, 0.24);
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(255, 253, 247, 0.92), rgba(237, 243, 237, 0.82));
+            box-shadow: 0 14px 30px rgba(14, 52, 36, 0.08);
+        }
+
+        .creator-card:hover,
+        .creator-card:focus-within {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 44px rgba(14, 52, 36, 0.14);
+        }
+
+        .creator-card img {
+            width: 116px;
+            height: auto;
+        }
+
+        .creator-details {
+            display: grid;
+            gap: 5px;
+            color: var(--forest);
+            font-size: 0.84rem;
+            line-height: 1.5;
+        }
+
+        .creator-details strong {
+            color: var(--forest);
+            font-size: 0.95rem;
+            font-weight: 900;
+        }
+
+        .creator-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+            color: var(--gold-deep);
+            font-weight: 900;
+        }
+
+        .creator-links a:hover,
+        .creator-links a:focus-visible {
+            color: var(--forest);
+            text-decoration: underline;
+        }
+
+        .reveal {
+            --reveal-y: 18px;
+            --motion-x: 0px;
+            --motion-y: 0px;
+            --motion-rotate: 0deg;
+            opacity: 0;
+            transform: translate3d(var(--motion-x), calc(var(--reveal-y) + var(--motion-y)), 0) rotate(var(--motion-rotate));
+            transition: opacity 0.6s ease, transform 0.24s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            --reveal-y: 0px;
+        }
+
+        @media (max-width: 980px) {
+            .nav {
+                min-height: auto;
+                padding: 14px 0;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .brand {
+                min-width: 0;
+            }
+
+            .hero-inner,
+            .about-grid,
+            .faq-testimonials,
+            .contact-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-inner {
+                min-height: auto;
+                padding: 56px 0 74px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-visual {
+                min-height: 360px;
+            }
+
+            .logo-stage {
+                width: min(340px, 92%);
+            }
+
+            .trust-grid,
+            .service-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .process-grid::before,
+            .process-grid::after {
+                display: none;
+            }
+
+            .process-step:nth-child(even) {
+                margin-top: 0;
+            }
+
+            .offer-row,
+            .offer-row:nth-child(even) {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-row:nth-child(even) .offer-image {
+                order: 0;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                width: min(100% - 22px, 1120px);
+            }
+
+            .topbar {
+                position: relative;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-actions {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .btn {
+                min-height: 46px;
+                padding: 0 12px;
+                font-size: 0.92rem;
+            }
+
+            .hero-title {
+                font-size: 2.35rem;
+            }
+
+            .hero-copy {
+                font-size: 1.02rem;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-meta,
+            .trust-grid,
+            .service-grid,
+            .process-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-note {
+                position: static;
+                max-width: none;
+                margin-top: 12px;
+            }
+
+            .hero-visual {
+                min-height: auto;
+                display: block;
+            }
+
+            .logo-stage {
+                margin: 0 auto;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .offer-row,
+            .contact-panel,
+            .lead-card {
+                padding: 22px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .creator-card {
+                grid-template-columns: 1fr;
+            }
+
+            .creator-card img {
+                width: min(190px, 100%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <nav class="container nav" aria-label="ניווט ראשי">
+                <a class="brand" href="#top" aria-label="מקסימום מימון - חזרה לראש העמוד">
+                    <img class="brand-mark" src="assets/logo-main.png" alt="מקסימום מימון">
+                    <span class="brand-text">
+                        <strong>מקסימום מימון</strong>
+                        <span>מקסמים פתרונות מימון</span>
+                    </span>
+                </a>
+                <div class="nav-links" aria-label="קישורי עמוד">
+                    <a href="#about">קצת עליי</a>
+                    <a href="#services">התמחויות</a>
+                    <a href="#process">איך זה עובד</a>
+                    <a href="#faq">שאלות</a>
+                    <a href="#contact">יצירת קשר</a>
+                </div>
+                <div class="nav-actions">
+                    <a class="btn btn-ghost" href="tel:0547044554" aria-label="התקשרו אל מקסימום מימון">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.69a16 16 0 0 0 6.22 6.22l1.21-1.2a2 2 0 0 1 2.11-.45c.85.3 1.74.51 2.65.63A2 2 0 0 1 22 16.92Z"/></svg>
+                        054-7044554
+                    </a>
+                    <a class="btn btn-primary" href="#contact">השארת פרטים</a>
+                </div>
+            </nav>
+        </header>
+
+        <main id="top">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="container hero-inner">
+                    <div class="hero-content reveal">
+                        <div class="eyebrow">הלוואות, משכנתאות ופתרונות למסורבים</div>
+                        <h1 id="hero-title" class="hero-title">מימון מדויק לבית שלכם, <span>בלי ללכת לאיבוד מול הבנקים.</span></h1>
+                        <p class="hero-copy">בונים יחד תמהיל נכון, בודקים את המספרים לעומק, מנהלים משא ומתן מול הבנקים, ומובילים אתכם לתנאים שמשרתים את המשפחה שלכם לאורך שנים.</p>
+                        <div class="hero-actions">
+                            <a class="btn btn-primary" href="#contact">בדיקת זכאות ראשונית</a>
+                            <a class="btn btn-ghost" href="https://wa.me/972547044554" target="_blank" rel="noopener">שיחה ב-WhatsApp</a>
+                        </div>
+                        <div class="hero-meta" aria-label="יתרונות מרכזיים">
+                            <div class="meta-item"><strong>משכנתא חדשה</strong><span>ליווי מלא מהתכנון ועד החתימה.</span></div>
+                            <div class="meta-item"><strong>מיחזור משכנתא</strong><span>בדיקה חכמה לשיפור תנאים קיימים.</span></div>
+                            <div class="meta-item"><strong>פתרונות למסורבים</strong><span>בחינה מקצועית של אפשרויות מימון.</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-visual reveal" aria-hidden="true">
+                        <div class="logo-stage">
+                            <img src="assets/logo-main.png" alt="">
+                        </div>
+                        <div class="floating-note top">מקסימום מקצועיות</div>
+                        <div class="floating-note bottom">מקסימום שירות</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container trust-band reveal" aria-label="ערכי השירות של מקסימום מימון">
+                <div class="trust-grid">
+                    <div class="trust-item"><span>01</span><strong>מקסימום מימון</strong></div>
+                    <div class="trust-item"><span>02</span><strong>מקסימום מקצועיות</strong></div>
+                    <div class="trust-item"><span>03</span><strong>מקסימום אמינות</strong></div>
+                    <div class="trust-item"><span>04</span><strong>מקסימום שירות</strong></div>
+                </div>
+            </div>
+
+            <section id="about" class="about">
+                <div class="container about-grid">
+                    <div class="portrait-panel reveal">
+                        <img src="assets/business-card.jpg" alt="כרטיס ביקור מקסימום מימון">
+                        <div class="signature-strip">
+                            <div>
+                                <strong>י. ש. גוטליב</strong>
+                                <span>ייעוץ משכנתאות ופתרונות מימון בגישה ברורה, אישית ומעשית.</span>
+                            </div>
+                            <img class="mini-logo" src="assets/mail-circle.png" alt="">
+                        </div>
+                    </div>
+                    <div class="text-block reveal">
+                        <div class="section-head">
+                            <span class="section-kicker">נעים מאוד</span>
+                            <h2 class="section-title">יועץ שמתרגם את עולם המשכנתאות לשפה שאפשר לקבל איתה החלטות.</h2>
+                            <p class="section-lead">משכנתא היא לא רק ריבית. היא תזרים משפחתי, ביטחון, גמישות ויכולת לנשום גם אחרי החתימה.</p>
+                        </div>
+                        <p>במקסימום מימון מתחילים מהתמונה האישית שלכם: הכנסות, התחייבויות, מטרת הרכישה, יכולת החזר, והדרך שבה אתם באמת חיים. רק אחר כך בונים את המסלול, מנהלים את הבדיקות ומגיעים לבנקים עם תיק מסודר וחזק.</p>
+                        <p>המטרה היא לא לבחור את ההצעה הראשונה שנשמעת טוב, אלא להבין מה נכון לכם, איפה אפשר לשפר, ואיך לסגור מימון בצורה מקצועית, רגועה ושקופה.</p>
+                        <div class="quote-panel">הליווי נועד לתת לכם שקט: לדעת שיש מי שבודק, משווה, מתמקח ומוודא שהמשכנתא עובדת בשבילכם.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services" class="services">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-kicker">ההתמחויות שלנו</span>
+                        <h2 class="section-title">פתרונות מימון שמתחילים מהצורך האמיתי שלכם.</h2>
+                        <p class="section-lead">רכישה ראשונה, מעבר דירה, מיחזור, הלוואה לכל מטרה או תיק מורכב מול הבנקים - בכל שלב יש דרך נכונה יותר להתקדם.</p>
+                    </div>
+                    <div class="service-grid">
+                        <article class="service-card reveal">
+                            <div class="service-number">01</div>
+                            <h3>משכנתא חדשה</h3>
+                            <p>תכנון מסגרת תקציב, בדיקת יכולת החזר, בניית תמהיל וניהול תהליך עד לקבלת אישור וסגירה.</p>
+                        </article>
+                        <article class="service-card reveal">
+                            <div class="service-number">02</div>
+                            <h3>מיחזור משכנתא</h3>
+                            <p>בדיקה האם המשכנתא הקיימת עדיין מתאימה, ואיפה ניתן לשפר ריביות, החזר חודשי או מבנה מסלולים.</p>
+                        </article>
+                        <article class="service-card reveal">
+                            <div class="service-number">03</div>
+                            <h3>משכנתאות למסורבים</h3>
+                            <p>ניתוח סיבת הסירוב, הכנת תיק נכון יותר ובחינת פתרונות ריאליים מול הגופים המתאימים.</p>
+                        </article>
+                        <article class="service-card reveal">
+                            <div class="service-number">04</div>
+                            <h3>הלוואות ופתרונות מימון</h3>
+                            <p>ליווי בבחירת מסלול אשראי נכון, תוך שמירה על תזרים, עלויות ויכולת החזר לאורך זמן.</p>
+                        </article>
+                        <article class="service-card reveal">
+                            <div class="service-number">05</div>
+                            <h3>משא ומתן מול הבנקים</h3>
+                            <p>הצגת תיק מקצועי, השוואת הצעות ומיקוח על התנאים החשובים באמת, לא רק על כותרת הריבית.</p>
+                        </article>
+                        <article class="service-card reveal">
+                            <div class="service-number">06</div>
+                            <h3>תכנון פיננסי למשכנתא</h3>
+                            <p>חיבור בין המשכנתא לתקציב המשפחתי, כדי שההחלטה תהיה נכונה גם ביום שאחרי המעבר.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="offers" class="offers">
+                <div class="container feature-offers">
+                    <article class="offer-row reveal">
+                        <div class="offer-image">
+                            <img src="assets/mortgage-ad.jpg" alt="מודעת שירות משכנתא חדשה של מקסימום מימון">
+                        </div>
+                        <div class="offer-content">
+                            <span class="section-kicker">משכנתא חדשה</span>
+                            <h3>לקנות בית עם תכנון ברור לפני שמתחייבים.</h3>
+                            <p>עוד לפני שמגיעים לבנק, בודקים מה נכון עבורכם: מסגרת תקציב, החזר חודשי, הון עצמי, ריביות ומסלולים. כך מקבלים החלטה מתוך שליטה ולא מתוך לחץ.</p>
+                            <ul class="check-list">
+                                <li>בדיקת יכולת החזר ומסגרת תקציב ריאלית.</li>
+                                <li>הכנת תיק בקשה מקצועי וברור לבנק.</li>
+                                <li>השוואת הצעות ובניית תמהיל מותאם אישית.</li>
+                            </ul>
+                            <a class="btn btn-dark" href="#contact">רוצה להתחיל נכון</a>
+                        </div>
+                    </article>
+
+                    <article class="offer-row reveal">
+                        <div class="offer-image">
+                            <img src="assets/refinance-ad.jpg" alt="מודעת שירות מיחזור משכנתא של מקסימום מימון">
+                        </div>
+                        <div class="offer-content">
+                            <span class="section-kicker">מיחזור משכנתא</span>
+                            <h3>יש לכם משכנתא קיימת? יכול להיות שהיא כבר לא עובדת לטובתכם.</h3>
+                            <p>שינויים בריבית, בהכנסות, בהוצאות או בצרכים המשפחתיים יכולים להפוך מיחזור למהלך משמעותי. בדיקה מקצועית יכולה לחשוף חיסכון, יציבות או גמישות טובה יותר.</p>
+                            <ul class="check-list">
+                                <li>ניתוח המשכנתא הקיימת מול התנאים בשוק.</li>
+                                <li>בדיקת כדאיות אמיתית לאחר עמלות ועלויות.</li>
+                                <li>בחירת מבנה חדש שמשרת את השנים הבאות.</li>
+                            </ul>
+                            <a class="btn btn-dark" href="#contact">בדיקת מיחזור</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="process" class="process">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <span class="section-kicker">איך זה עובד?</span>
+                        <h2 class="section-title">ארבעה שלבים שמכניסים סדר לתהליך המימון.</h2>
+                        <p class="section-lead">כל שלב בנוי כדי לצמצם הפתעות, לחזק את התיק מול הבנק ולשמור אתכם עם תמונה ברורה לאורך כל הדרך.</p>
+                    </div>
+                    <div class="process-grid">
+                        <article class="process-step reveal" data-step="1">
+                            <span class="step-chip">שלב 01</span>
+                            <span class="step-icon" aria-hidden="true">₪</span>
+                            <h3>מיפוי פיננסי</h3>
+                            <p>בודקים הכנסות, הוצאות, התחייבויות, הון עצמי ויכולת החזר, ומגדירים יעד מימון נכון.</p>
+                            <span class="step-detail">תמונה פיננסית מלאה</span>
+                        </article>
+                        <article class="process-step reveal" data-step="2">
+                            <span class="step-chip">שלב 02</span>
+                            <span class="step-icon" aria-hidden="true">✓</span>
+                            <h3>בניית תיק לבנק</h3>
+                            <p>אוספים מסמכים, מציגים את הנתונים בצורה מקצועית ומכינים את הקרקע לאישור טוב יותר.</p>
+                            <span class="step-detail">תיק חזק ומסודר</span>
+                        </article>
+                        <article class="process-step reveal" data-step="3">
+                            <span class="step-chip">שלב 03</span>
+                            <span class="step-icon" aria-hidden="true">%</span>
+                            <h3>משא ומתן והשוואה</h3>
+                            <p>פונים לבנקים, משווים הצעות ומנהלים מיקוח על הריביות, המסלולים והתנאים.</p>
+                            <span class="step-detail">יותר כוח מול הבנקים</span>
+                        </article>
+                        <article class="process-step reveal" data-step="4">
+                            <span class="step-chip">שלב 04</span>
+                            <span class="step-icon" aria-hidden="true">⌂</span>
+                            <h3>בחירה וליווי עד חתימה</h3>
+                            <p>בוחרים את המסלול המתאים, בודקים את האותיות הקטנות ומלווים אתכם עד סגירת התהליך.</p>
+                            <span class="step-detail">סגירה בראש שקט</span>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="faq-section">
+                <div class="container faq-testimonials">
+                    <div>
+                        <div class="section-head reveal">
+                            <span class="section-kicker">שאלות הכוונה</span>
+                            <h2 class="section-title">מה חשוב לדעת לפני שפונים לבנק?</h2>
+                            <p class="section-lead">כמה תשובות קצרות לשאלות שחוזרות כמעט בכל תהליך משכנתא.</p>
+                        </div>
+                        <div class="faq-list reveal">
+                            <article class="faq-item open">
+                                <button class="faq-button" type="button" aria-expanded="true">
+                                    <span>באיזה שלב כדאי לפנות ליועץ משכנתאות?</span>
+                                    <span class="faq-icon" aria-hidden="true">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner"><p>מומלץ לפנות לפני חתימה על חוזה או התחייבות משמעותית. כך אפשר להבין מראש מה באמת אפשרי, מה ההחזר הנכון ומה צריך להכין לבנק.</p></div>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <button class="faq-button" type="button" aria-expanded="false">
+                                    <span>האם אפשר לשפר משכנתא קיימת?</span>
+                                    <span class="faq-icon" aria-hidden="true">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner"><p>כן, אבל לא בכל מצב. צריך לבדוק ריביות, יתרות, עמלות, תקופה שנותרה וצרכים משפחתיים. רק אחרי בדיקה מלאה אפשר לדעת אם מיחזור משתלם.</p></div>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <button class="faq-button" type="button" aria-expanded="false">
+                                    <span>מה עושים אם הבנק סירב למשכנתא?</span>
+                                    <span class="faq-icon" aria-hidden="true">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner"><p>בודקים קודם למה התקבל הסירוב: הכנסות, דירוג אשראי, יחס החזר, מסמכים או מבנה העסקה. לאחר מכן בונים תיק נכון יותר ובוחנים חלופות.</p></div>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <button class="faq-button" type="button" aria-expanded="false">
+                                    <span>האם היועץ מחליף את הבנק?</span>
+                                    <span class="faq-icon" aria-hidden="true">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner"><p>לא. הבנק נותן את המימון, והיועץ עובד עבורכם: בודק, משווה, מסביר, מנהל משא ומתן ומוודא שהתנאים מתאימים לכם.</p></div>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <button class="faq-button" type="button" aria-expanded="false">
+                                    <span>כמה זמן לוקח לקבל אישור למשכנתא?</span>
+                                    <span class="faq-icon" aria-hidden="true">+</span>
+                                </button>
+                                <div class="faq-answer">
+                                    <div class="faq-answer-inner"><p>זה תלוי במורכבות התיק ובמסמכים הזמינים. כשהתיק מוכן ומסודר, התהליך מתקדם מהר יותר ובדרך כלל גם איכות ההצעות משתפרת.</p></div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <aside class="testimonial-stack reveal" aria-label="לקוחות ממליצים">
+                        <div class="section-head">
+                            <span class="section-kicker">לקוחות ממליצים</span>
+                            <h2 class="section-title">ליווי שמורגש במספרים ובשקט הנפשי.</h2>
+                        </div>
+                        <article class="testimonial">
+                            <p>"הגענו עם הרבה בלבול והצעות שלא באמת הבנו. אחרי מיפוי מסודר היה ברור מה נכון לנו, והמשא ומתן מול הבנקים חסך לנו הרבה כסף."</p>
+                            <strong>משפחה מרכישת דירה ראשונה</strong>
+                        </article>
+                        <article class="testimonial">
+                            <p>"חשבנו שהמשכנתא הקיימת בסדר, אבל הבדיקה הראתה שאפשר לבנות אותה מחדש בצורה הרבה יותר רגועה לתזרים החודשי שלנו."</p>
+                            <strong>לקוח בתהליך מיחזור</strong>
+                        </article>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <div class="container">
+                    <div class="contact-panel reveal">
+                        <div class="contact-info">
+                            <div>
+                                <span class="section-kicker">מתחילים בתהליך?</span>
+                                <h2 class="section-title">השאירו פרטים ונחזור אליכם בהקדם.</h2>
+                                <p class="section-lead">שיחה קצרה יכולה לחסוך הרבה חוסר ודאות. ספרו איפה אתם עומדים, ונבדוק יחד מה הצעד הנכון הבא.</p>
+                            </div>
+                            <div class="contact-methods">
+                                <a class="contact-method" href="tel:0547044554">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.11 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.63 2.65a2 2 0 0 1-.45 2.11L8.09 9.69a16 16 0 0 0 6.22 6.22l1.21-1.2a2 2 0 0 1 2.11-.45c.85.3 1.74.51 2.65.63A2 2 0 0 1 22 16.92Z"/></svg>
+                                    <span><span>טלפון ישיר</span><strong>0547044554</strong></span>
+                                </a>
+                                <a class="contact-method" href="mailto:yg0583229718@gmail.com">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="2"/></svg>
+                                    <span><span>מייל</span><strong>yg0583229718@gmail.com</strong></span>
+                                </a>
+                                <a class="contact-method" href="https://wa.me/972547044554" target="_blank" rel="noopener">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.49 0 .14 5.34.14 11.93c0 2.1.55 4.16 1.6 5.98L0 24l6.25-1.64a11.93 11.93 0 0 0 5.82 1.48h.01c6.58 0 11.94-5.35 11.94-11.93 0-3.19-1.24-6.19-3.5-8.43Z"/><path d="M17.05 14.2c-.27-.14-1.58-.78-1.83-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.48-.84-2.02-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.65 1.12 2.83c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.58-.65 1.8-1.27.22-.62.22-1.15.16-1.27-.07-.11-.25-.18-.52-.32Z"/></svg>
+                                    <span><span>WhatsApp</span><strong>שלחו הודעה עכשיו</strong></span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="lead-card">
+                            <form id="leadForm" action="https://formsubmit.co/b0534108188@gmail.com" method="POST" novalidate>
+                                <input type="hidden" name="_subject" value="פנייה חדשה מהאתר - מקסימום מימון">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_captcha" value="false">
+                                <h3>טופס פנייה מהיר</h3>
+                                <p>מלאו פרטים ונחזור אליכם לתיאום שיחה ראשונית.</p>
+                                <div class="form-grid">
+                                    <div class="field" data-field="firstName">
+                                        <label for="firstName">שם פרטי *</label>
+                                        <input id="firstName" name="שם פרטי" type="text" autocomplete="given-name" required>
+                                        <span class="error">נא להזין שם פרטי</span>
+                                    </div>
+                                    <div class="field" data-field="lastName">
+                                        <label for="lastName">שם משפחה</label>
+                                        <input id="lastName" name="שם משפחה" type="text" autocomplete="family-name">
+                                    </div>
+                                    <div class="field" data-field="phone">
+                                        <label for="phone">טלפון *</label>
+                                        <input id="phone" name="טלפון" type="tel" inputmode="tel" autocomplete="tel" placeholder="050-0000000" required>
+                                        <span class="error">נא להזין מספר טלפון ישראלי תקין</span>
+                                    </div>
+                                    <div class="field" data-field="email">
+                                        <label for="email">אימייל</label>
+                                        <input id="email" name="אימייל" type="email" autocomplete="email" placeholder="name@example.com">
+                                    </div>
+                                    <div class="field full" data-field="service">
+                                        <label for="service">מה הנושא? *</label>
+                                        <select id="service" name="נושא הפנייה" required>
+                                            <option value="">בחרו שירות</option>
+                                            <option>משכנתא חדשה</option>
+                                            <option>מיחזור משכנתא</option>
+                                            <option>הלוואה או פתרון מימון</option>
+                                            <option>משכנתא למסורבים</option>
+                                            <option>ייעוץ כללי</option>
+                                        </select>
+                                        <span class="error">נא לבחור נושא לפנייה</span>
+                                    </div>
+                                    <div class="field full">
+                                        <label for="message">מה חשוב שנדע?</label>
+                                        <textarea id="message" name="הודעה" placeholder="לדוגמה: מחיר דירה, הון עצמי, החזר רצוי, האם קיימת משכנתא..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-footer">
+                                    <button class="btn btn-primary" type="submit">שליחת פרטים למייל</button>
+                                    <p class="microcopy">הפרטים יישלחו למייל b0534108188@gmail.com עם כל שדות הפנייה. בפעם הראשונה ייתכן שתידרש הפעלת כתובת דרך FormSubmit.</p>
+                                    <div id="successBox" class="success-box" role="status" aria-live="polite"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container footer-inner">
+                <div class="footer-logo">
+                    <img src="assets/logo-main.png" alt="מקסימום מימון">
+                    <span>מקסימום מימון</span>
+                </div>
+                <div>י. ש. גוטליב | 0547044554 | yg0583229718@gmail.com</div>
+                <div class="creator-card" aria-label="קרדיט בניית אתר">
+                    <img src="assets/brakha-rosenberg-logo.svg" alt="ברכה רוזנברג - בניית אתרים">
+                    <div class="creator-details">
+                        <strong>אתר זה נבנה על ידי ברכה רוזנברג</strong>
+                        <div class="creator-links">
+                            <a href="mailto:b0534108188@gmail.com?subject=הזמנה לבניית אתר">להזמנות</a>
+                            <a href="tel:0584610088">0584610088</a>
+                            <a href="mailto:b0534108188@gmail.com">B0534108188@GMAIL.COM</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        "use strict";
+
+        const revealItems = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealItems.forEach((item) => observer.observe(item));
+
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const motionItems = Array.from(revealItems);
+
+        if (!reducedMotion) {
+            let pointerOffset = 0;
+            let motionFrame = 0;
+
+            function clamp(value, min, max) {
+                return Math.min(Math.max(value, min), max);
+            }
+
+            function updateMotion() {
+                motionFrame = 0;
+                const viewportHeight = window.innerHeight || 1;
+
+                motionItems.forEach((item, index) => {
+                    if (!item.classList.contains("visible")) {
+                        return;
+                    }
+
+                    const rect = item.getBoundingClientRect();
+                    if (rect.bottom < -180 || rect.top > viewportHeight + 180) {
+                        return;
+                    }
+
+                    const centerOffset = ((rect.top + rect.height / 2) - viewportHeight / 2) / viewportHeight;
+                    const strength = 8 + (index % 4) * 3;
+                    const direction = index % 2 === 0 ? 1 : -1;
+                    const y = clamp(centerOffset * -strength + pointerOffset * 8, -24, 24);
+                    const x = clamp(centerOffset * direction * strength * 0.26, -9, 9);
+                    const rotation = clamp(x * 0.04, -0.45, 0.45);
+
+                    item.style.setProperty("--motion-y", `${y.toFixed(2)}px`);
+                    item.style.setProperty("--motion-x", `${x.toFixed(2)}px`);
+                    item.style.setProperty("--motion-rotate", `${rotation.toFixed(2)}deg`);
+                });
+            }
+
+            function scheduleMotion() {
+                if (!motionFrame) {
+                    motionFrame = window.requestAnimationFrame(updateMotion);
+                }
+            }
+
+            window.addEventListener("scroll", scheduleMotion, { passive: true });
+            window.addEventListener("resize", scheduleMotion);
+            window.addEventListener("pointermove", (event) => {
+                pointerOffset = ((event.clientY || 0) / (window.innerHeight || 1)) - 0.5;
+                scheduleMotion();
+            }, { passive: true });
+
+            window.setTimeout(scheduleMotion, 120);
+        }
+
+        const interactiveSurfaces = document.querySelectorAll(".meta-item, .trust-item, .portrait-panel, .quote-panel, .service-card, .offer-row, .process-step, .faq-item, .testimonial, .contact-method, .lead-card, .creator-card");
+
+        interactiveSurfaces.forEach((surface) => {
+            surface.addEventListener("pointermove", (event) => {
+                const rect = surface.getBoundingClientRect();
+                const x = ((event.clientX - rect.left) / rect.width) * 100;
+                const y = ((event.clientY - rect.top) / rect.height) * 100;
+                surface.style.setProperty("--spot-x", `${x.toFixed(1)}%`);
+                surface.style.setProperty("--spot-y", `${y.toFixed(1)}%`);
+            }, { passive: true });
+
+            surface.addEventListener("pointerleave", () => {
+                surface.style.setProperty("--spot-x", "50%");
+                surface.style.setProperty("--spot-y", "50%");
+            });
+        });
+
+        document.querySelectorAll(".faq-button").forEach((button) => {
+            button.addEventListener("click", () => {
+                const item = button.closest(".faq-item");
+                const isOpen = item.classList.contains("open");
+
+                document.querySelectorAll(".faq-item").forEach((faqItem) => {
+                    faqItem.classList.remove("open");
+                    faqItem.querySelector(".faq-button").setAttribute("aria-expanded", "false");
+                });
+
+                if (!isOpen) {
+                    item.classList.add("open");
+                    button.setAttribute("aria-expanded", "true");
+                }
+            });
+        });
+
+        const leadForm = document.getElementById("leadForm");
+        const successBox = document.getElementById("successBox");
+
+        function setInvalid(name, invalid) {
+            const field = document.querySelector(`[data-field="${name}"]`);
+            if (field) {
+                field.classList.toggle("invalid", invalid);
+            }
+        }
+
+        function cleanPhone(phone) {
+            return phone.replace(/[\s\-()]/g, "");
+        }
+
+        function escapeHtml(value) {
+            return value.replace(/[&<>"]/g, (char) => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;"
+            }[char]));
+        }
+
+        leadForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            successBox.classList.remove("show");
+            successBox.innerHTML = "";
+
+            const firstName = document.getElementById("firstName").value.trim();
+            const lastName = document.getElementById("lastName").value.trim();
+            const phone = cleanPhone(document.getElementById("phone").value.trim());
+            const email = document.getElementById("email").value.trim();
+            const service = document.getElementById("service").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const phoneValid = /^0[2-9]\d{7,8}$/.test(phone);
+            const nameValid = firstName.length > 1;
+            const serviceValid = service.length > 0;
+
+            setInvalid("firstName", !nameValid);
+            setInvalid("phone", !phoneValid);
+            setInvalid("service", !serviceValid);
+
+            if (!nameValid || !phoneValid || !serviceValid) {
+                return;
+            }
+
+            const fullName = [firstName, lastName].filter(Boolean).join(" ");
+            leadForm.querySelector('input[name="_subject"]').value = `פנייה חדשה מהאתר - ${fullName}`;
+
+            successBox.innerHTML = `
+                <strong>הפרטים נשלחים למייל.</strong>
+                <div>תודה ${escapeHtml(fullName)}. הפנייה נשלחת עכשיו לכתובת b0534108188@gmail.com.</div>
+                <div class="success-summary">
+                    <span><b>יעד:</b> b0534108188@gmail.com</span>
+                    <span><b>טלפון:</b> ${escapeHtml(phone)}</span>
+                    <span><b>נושא:</b> ${escapeHtml(service)}</span>
+                    ${email ? `<span><b>אימייל:</b> ${escapeHtml(email)}</span>` : ""}
+                    ${message ? `<span><b>הערה:</b> ${escapeHtml(message)}</span>` : ""}
+                </div>
+            `;
+            successBox.classList.add("show");
+            window.setTimeout(() => leadForm.submit(), 350);
+        });
+    </script>
+</body>
+</html>

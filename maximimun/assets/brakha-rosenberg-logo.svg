@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 150" role="img" aria-labelledby="title desc">
+    <title id="title">ברכה רוזנברג - בניית אתרים</title>
+    <desc id="desc">לוגו יוקרתי בגווני ירוק וזהב עבור ברכה רוזנברג</desc>
+    <defs>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f3df96"/>
+            <stop offset="0.45" stop-color="#c9a243"/>
+            <stop offset="1" stop-color="#8f6b22"/>
+        </linearGradient>
+        <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1f6b46"/>
+            <stop offset="1" stop-color="#0e3424"/>
+        </linearGradient>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#0e3424" flood-opacity="0.24"/>
+        </filter>
+    </defs>
+    <g filter="url(#shadow)">
+        <circle cx="333" cy="75" r="45" fill="url(#green)"/>
+        <circle cx="333" cy="75" r="35" fill="none" stroke="url(#gold)" stroke-width="2"/>
+        <path d="M309 83c11-23 30-34 56-32-12 22-30 33-56 32Z" fill="url(#gold)" opacity="0.96"/>
+        <path d="M320 96c9-14 22-21 41-20-9 14-22 21-41 20Z" fill="#fffdf7" opacity="0.86"/>
+        <text x="333" y="82" text-anchor="middle" font-family="Heebo, Arial, sans-serif" font-size="26" font-weight="900" fill="#fffdf7">BR</text>
+    </g>
+    <text x="286" y="61" text-anchor="end" font-family="Heebo, Arial, sans-serif" font-size="31" font-weight="900" fill="#0e3424">ברכה רוזנברג</text>
+    <text x="286" y="91" text-anchor="end" font-family="Heebo, Arial, sans-serif" font-size="16" font-weight="800" fill="#9b7829">בניית אתרים ועיצוב חוויות דיגיטליות</text>
+    <line x1="77" y1="105" x2="286" y2="105" stroke="url(#gold)" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+    <text x="286" y="125" text-anchor="end" font-family="Heebo, Arial, sans-serif" font-size="12" font-weight="800" fill="#506055">Professional Web Design</text>
+</svg>
